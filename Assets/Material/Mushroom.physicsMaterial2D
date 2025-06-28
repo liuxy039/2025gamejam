@@ -7,5 +7,3 @@ PhysicsMaterial2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mushroom
-  friction: 0.4
-  bounciness: 0
