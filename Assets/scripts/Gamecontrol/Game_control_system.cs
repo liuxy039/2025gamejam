@@ -25,4 +25,11 @@ public class Game_control_system : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }//切换到+1的场景去
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.R)) 
+        {
+            retry();
+        }
+    }
 }
