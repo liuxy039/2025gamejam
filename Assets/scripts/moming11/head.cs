@@ -39,17 +39,6 @@ public class head : MonoBehaviour
             isalive =false;
         }
     }
-    /*public class DeadlyObject : MonoBehaviour
-    {
-        void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                // 调用主角的死亡方法
-                collision.gameObject.GetComponent<PlayerController>().Die();
-            }
-        }
-    }碰撞主角相关内容*/
     void FixedUpdate()
     {
         switch (currentState)
