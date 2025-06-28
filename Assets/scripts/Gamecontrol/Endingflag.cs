@@ -10,7 +10,8 @@ public class Endingflag : MonoBehaviour
         // 检查碰撞的物体是否有"Player"标签
         if (other.CompareTag("Player"))
         {
-            game_Control_System.nextLevel();
+            //game_Control_System.nextLevel();
+            Debug.Log("you win");
         }
     }
 }
