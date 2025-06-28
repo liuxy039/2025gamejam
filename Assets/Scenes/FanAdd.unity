@@ -2822,6 +2822,7 @@ GameObject:
   - component: {fileID: 984352748}
   - component: {fileID: 984352749}
   - component: {fileID: 984352750}
+  - component: {fileID: 984352751}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2873,12 +2874,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06f18e3ffac39d4ca09cdc5651692a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 1168254197}
-  gameOverText: {fileID: 218919506}
+  gameOverCanvasGroup: {fileID: 1168254201}
+  gameOverMessageText: {fileID: 218919506}
   restartButton: {fileID: 1528643659}
-  menuButton: {fileID: 638450128}
-  testButton: {fileID: 499503792}
-  gameOverDelay: 1
+  mainMenuButton: {fileID: 638450128}
+  fadeInDuration: 0.5
+  fadeOutDuration: 0.3
 --- !u!114 &984352749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2935,8 +2936,20 @@ MonoBehaviour:
   statsText: {fileID: 0}
   nextLevelButton: {fileID: 755935262}
   menuButton: {fileID: 681779841}
-  showDelay: 1
+  testButton: {fileID: 898332741}
   levelCompleteMessage: You Win!
+--- !u!225 &984352751
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984352745}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1018215501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,7 +2965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1018215502
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2989,7 +3002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1106655552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3354,6 +3367,7 @@ GameObject:
   - component: {fileID: 1168254198}
   - component: {fileID: 1168254200}
   - component: {fileID: 1168254199}
+  - component: {fileID: 1168254201}
   m_Layer: 5
   m_Name: GameEnd Panel
   m_TagString: Untagged
@@ -3421,6 +3435,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168254197}
   m_CullTransparentMesh: 1
+--- !u!225 &1168254201
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168254197}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1174485049
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,7 +3462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1174485050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4207,7 +4233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1516813707
 RectTransform:
   m_ObjectHideFlags: 0
