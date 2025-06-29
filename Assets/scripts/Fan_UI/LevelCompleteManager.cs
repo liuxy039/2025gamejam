@@ -1,16 +1,16 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelCompleteManager : MonoBehaviour
 {
     [Header("UI References")]
     public GameObject levelCompletePanel; // 通关面板
-    public TMP_Text levelCompleteText;  // 通关文本
-    public TMP_Text statsText;         // 统计信息文本（可选）
     public Button nextLevelButton;     // 下一关按钮
     public Button menuButton;          // 主菜单按钮
     public Button testButton;         // 测试按钮（仅编辑器可见）
+    [SerializeField]Game_control_system gameControlSystem;
 
     [Header("Settings")]
     public string levelCompleteMessage = "关卡完成！";
@@ -33,27 +33,12 @@ public class LevelCompleteManager : MonoBehaviour
         #endif
     }
 
-    // ========== 公开接口 ==========
-    
-    /// <summary>
-    /// 显示通关界面
-    /// </summary>
-    /// <param name="hasNextLevel">是否有下一关</param>
-    /// <param name="statsInfo">统计信息（可选）</param>
+
     public void ShowLevelComplete(bool hasNextLevel, string statsInfo = "")
     {
         levelCompletePanel.SetActive(true);
         
-        // 设置文本
-        if (levelCompleteText != null)
-        {
-            levelCompleteText.text = levelCompleteMessage;
-        }
-        
-        if (statsText != null && !string.IsNullOrEmpty(statsInfo))
-        {
-            statsText.text = statsInfo;
-        }
+  
         
         // 设置下一关按钮状态
         nextLevelButton.interactable = hasNextLevel;
@@ -69,9 +54,7 @@ public class LevelCompleteManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 隐藏通关界面
-    /// </summary>
+
     public void HideLevelComplete()
     {
         levelCompletePanel.SetActive(false);
@@ -82,11 +65,12 @@ public class LevelCompleteManager : MonoBehaviour
     private void OnNextLevelClicked()
     {
         // 外部需要通过事件或其他方式处理实际逻辑
+        gameControlSystem.nextLevel();
     }
 
     private void OnMenuClicked()
     {
-        // 外部需要通过事件或其他方式处理实际逻辑
+        gameControlSystem.backToMenu();
     }
 
     // ========== 测试功能 ==========

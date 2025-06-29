@@ -10,6 +10,7 @@ public class Hurt : MonoBehaviour
     private float t = 0f;
     [SerializeField] GameObject fire;
     [SerializeField] GameObject Player;
+    [SerializeField] Game_control_system game_control;
     private bool dead = false;
     private void Start()
     {
@@ -23,6 +24,7 @@ public class Hurt : MonoBehaviour
             fire.gameObject.SetActive(true);
             Player.gameObject.SetActive(false);
             dead = true;
+            game_control.gameover();
         }
     }
     private void Update()

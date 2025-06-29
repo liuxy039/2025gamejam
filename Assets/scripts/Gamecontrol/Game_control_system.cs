@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Game_control_system : MonoBehaviour
 {
+
+    [SerializeField]GameOverManager gameOverManager;
     public void gameover()
     {
-
+        gameOverManager.ShowGameOver();
     }
     public void retry() 
     {
@@ -31,5 +33,10 @@ public class Game_control_system : MonoBehaviour
         {
             retry();
         }
+    }
+
+    public void backToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

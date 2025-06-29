@@ -11,6 +11,7 @@ public class PauseManager : MonoBehaviour
     public Button restartButton;  // 重新开始按钮
     public Button menuButton;     // 主菜单按钮
 
+
     private bool isPaused = false;
 
     void Start()
