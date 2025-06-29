@@ -19,6 +19,7 @@ public class Controller : MonoBehaviour
     Animator anim;
     Vector3 oscale;
     [SerializeField] private Slider hp;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -44,15 +45,15 @@ public class Controller : MonoBehaviour
         anim.SetBool("Moving", input_x != 0);
         if (input_x != 0 & isGround)
         {
-            anim.Play("Walk");
+            anim.SetInteger("state", 1);
         }
     }
 
     private void onGround()
     {
-        if (isGround)
+        if (isGround & input_x ==0)
         {
-            anim.Play("Still");
+            anim.SetInteger("state", 0);
         }
     }
     private void jump()
@@ -63,7 +64,7 @@ public class Controller : MonoBehaviour
         }
         if (!isGround)
         {
-            anim.Play("Jump");
+            anim.SetInteger("state", 2);
         }
     }
 

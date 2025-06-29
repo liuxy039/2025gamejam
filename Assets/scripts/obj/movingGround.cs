@@ -1,40 +1,74 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
-public class Movingground : MonoBehaviour
+public class MovingGround : MonoBehaviour
 {
-    public float speed = 2;
+    [Header("Movement Settings")]
+    public float speed = 2f;
     public Transform movingGround;
     public Transform p1, p2;
+
+    [Header("Sprite Settings")]
+    public Sprite inactiveSprite;  // 未激活时的精灵图
+    public Sprite activeSprite;    // 激活后的精灵图
+
+    private bool isActive = false;
     private bool changed = false;
-    private bool isMoving = false;
     private Coroutine movementCoroutine;
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        // 获取SpriteRenderer组件
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        }
+
+        // 设置初始精灵图
+        if (inactiveSprite != null)
+        {
+            spriteRenderer.sprite = inactiveSprite;
+        }
+    }
 
     private void OnMouseDown()
     {
-        // 切换移动状态
         if (movingGround != null)
         {
             ToggleMovement();
         }
     }
+
     public void ToggleMovement()
     {
         if (!changed)
         {
-            isMoving = !isMoving; // 切换移动状态
+            isActive = !isActive;
             changed = true;
-            if (isMoving)
+
+            // 切换精灵图
+            if (isActive && activeSprite != null)
             {
-                // 如果正在移动，启动协程
+                spriteRenderer.sprite = activeSprite;
+            }
+            else if (!isActive && inactiveSprite != null)
+            {
+                spriteRenderer.sprite = inactiveSprite;
+            }
+
+            if (isActive)
+            {
+                // 启动移动协程
                 if (movementCoroutine == null)
                 {
-                    movementCoroutine = StartCoroutine(movePlat(speed));
+                    movementCoroutine = StartCoroutine(MovePlatform(speed));
                 }
             }
             else
             {
-                // 如果停止移动，停止协程
+                // 停止移动协程
                 if (movementCoroutine != null)
                 {
                     StopCoroutine(movementCoroutine);
@@ -43,6 +77,35 @@ public class Movingground : MonoBehaviour
             }
         }
     }
+
+    IEnumerator MovePlatform(float speed)
+    {
+        Vector3 dir = p1.position - p2.position;
+        dir.Normalize();
+        float t = 0;
+        int direction = 1;
+
+        while (true)
+        {
+            t += direction * Time.deltaTime * speed;
+
+            // 控制平台在两点间往返移动
+            if (t >= 1f)
+            {
+                direction = -1;
+                t = 1f;
+            }
+            else if (t <= 0f)
+            {
+                direction = 1;
+                t = 0f;
+            }
+
+            movingGround.position = Vector3.Lerp(p2.position, p1.position, t);
+            yield return null;
+        }
+    }
+
     // 玩家站上平台时设为子物体
     private void OnTriggerEnter(Collider other)
     {
@@ -58,28 +121,6 @@ public class Movingground : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.transform.parent = null;
-        }
-    }
-    IEnumerator movePlat(float speed)
-    {
-        Vector3 dir = p1.position - p2.position;
-        dir.Normalize();
-        float t = 0;
-        int di = 1;
-
-        while (true)
-        {
-            t += di * Time.deltaTime * speed;
-            if (t >= 1)
-            {
-                di = -1;
-            }
-            if (t <= 0)
-            {
-                di = 1;
-            }
-            movingGround.transform.position = Vector3.Lerp(p2.position, p1.position, t);
-            yield return null;
         }
     }
 }

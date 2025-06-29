@@ -1,39 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GUn : MonoBehaviour
 {
+    [Header("Ball Settings")]
     public GameObject ballObject; // 已经存在的球对象
     public Transform launchPoint; // 发射起始点
     public float launchForce = 10f; // 发射力度
     public float cooldownTime = 2f; // 冷却时间
 
+    [Header("Sprite Settings")]
+    public Sprite inactiveSprite;  // 未激活时的精灵图
+    public Sprite activeSprite;    // 激活后的精灵图
+
     private float cooldownTimer = 0f;
     private bool canLaunch = true;
     private Rigidbody2D ballRigidbody;
-    private Vector2 originalBallPosition; // 存储球的原始位置
-    private bool isalive = false;
-    private void OnMouseDown()
-    {
-        // 点击后执行的行为
-        Debug.Log("物体被点击了！");
-        isalive = true;
-    }
+    private Vector2 originalBallPosition;
+    private bool isActive = false;
+    private SpriteRenderer spriteRenderer;
+
     private void Start()
     {
+        // 获取SpriteRenderer组件
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        }
+
+        // 设置初始精灵图(未激活状态)
+        if (inactiveSprite != null)
+        {
+            spriteRenderer.sprite = inactiveSprite;
+        }
+
+        // 初始化球设置
         if (ballObject != null)
         {
             ballRigidbody = ballObject.GetComponent<Rigidbody2D>();
             originalBallPosition = ballObject.transform.position;
-
-            // 初始时禁用球
             ballObject.SetActive(false);
         }
     }
+
+    private void OnMouseDown()
+    {
+        // 点击后激活
+        isActive = true;
+        Debug.Log("物体被点击了！");
+
+        // 切换精灵图
+        if (activeSprite != null)
+        {
+            spriteRenderer.sprite = activeSprite;
+        }
+    }
+
     private void Update()
     {
-        if (isalive)
+        if (isActive)
         {
             if (!canLaunch)
             {
@@ -45,7 +70,6 @@ public class GUn : MonoBehaviour
                 }
             }
 
-            // 如果可以发射，重置并发射球
             if (canLaunch)
             {
                 ResetAndLaunchBall();
@@ -53,6 +77,7 @@ public class GUn : MonoBehaviour
             }
         }
     }
+
     void ResetAndLaunchBall()
     {
         if (ballObject == null) return;
@@ -67,17 +92,22 @@ public class GUn : MonoBehaviour
             ballRigidbody.AddForce(Vector2.left * launchForce, ForceMode2D.Impulse);
         }
 
-        // 激活球
         ballObject.SetActive(true);
     }
 
-    // 可选：当球离开屏幕或碰撞时调用此方法重置球
     public void ResetBall()
     {
         if (ballObject != null)
         {
             ballObject.SetActive(false);
             ballObject.transform.position = originalBallPosition;
+
+            // 重置为未激活状态和精灵图
+            isActive = false;
+            if (inactiveSprite != null)
+            {
+                spriteRenderer.sprite = inactiveSprite;
+            }
         }
     }
 }
