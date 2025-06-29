@@ -929,7 +929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &400543911902236093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,7 +3221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &8650731476048450276
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,7 +3326,6 @@ GameObject:
   - component: {fileID: 7875565419061479132}
   - component: {fileID: 5788721437290876721}
   - component: {fileID: 3705908247870266166}
-  - component: {fileID: 9221327229694700608}
   - component: {fileID: 6228595338141873517}
   - component: {fileID: 4021028415349724756}
   m_Layer: 0
@@ -3418,45 +3417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game_Control_System: {fileID: 4638615900174060994}
   levelCompleteManager: {fileID: 6228595338141873517}
---- !u!114 &9221327229694700608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9017747997002675655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b0a4f1b674849f48899a49f1bcd056c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuPanel: {fileID: 0}
-  startButton: {fileID: 0}
-  quitButton: {fileID: 0}
-  levelSelectPanel: {fileID: 0}
-  levelButtonContainer: {fileID: 0}
-  levelButtonPrefab: {fileID: 4973938165315844623, guid: 523ddb866266f6d42a3e3c5dfa0d9fba, type: 3}
-  backButton: {fileID: 0}
-  levelSelectCanvasGroup: {fileID: 0}
-  levels:
-  - levelName: 1
-    sceneName: 1
-    thumbnail: {fileID: 0}
-  - levelName: 2
-    sceneName: 2
-    thumbnail: {fileID: 0}
-  - levelName: 3
-    sceneName: 3
-    thumbnail: {fileID: 0}
-  - levelName: 4
-    sceneName: 4
-    thumbnail: {fileID: 0}
-  - levelName: 5
-    sceneName: 5
-    thumbnail: {fileID: 0}
-  - levelName: 6
-    sceneName: 6
-    thumbnail: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -275,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 735700045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.87, y: 2.05, z: 0}
+  m_LocalPosition: {x: -3.54, y: 2.05, z: 0}
   m_LocalScale: {x: 0.46967, y: 0.46967, z: 0.46967}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -675,7 +675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1100875932752393995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,7 +1089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6787023, y: 0}
   m_AnchorMax: {x: 0.6787023, y: 1}
-  m_AnchoredPosition: {x: -214.8, y: 0}
+  m_AnchoredPosition: {x: 210, y: -92}
   m_SizeDelta: {x: 709.87, y: -44.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5801879720573780793
@@ -1391,22 +1391,25 @@ MonoBehaviour:
   levelSelectCanvasGroup: {fileID: 6732525573380693169}
   levels:
   - levelName: 1
-    sceneName: 1
+    sceneName: start
     thumbnail: {fileID: 0}
   - levelName: 2
-    sceneName: 2
+    sceneName: levelez0
     thumbnail: {fileID: 0}
   - levelName: 3
-    sceneName: 3
+    sceneName: levelez0 1
     thumbnail: {fileID: 0}
   - levelName: 4
-    sceneName: 4
+    sceneName: level Easy
     thumbnail: {fileID: 0}
   - levelName: 5
-    sceneName: 5
+    sceneName: level 01
     thumbnail: {fileID: 0}
   - levelName: 6
-    sceneName: 6
+    sceneName: level 03
+    thumbnail: {fileID: 0}
+  - levelName: 7
+    sceneName: level 02
     thumbnail: {fileID: 0}
 --- !u!1 &8286271406272292891
 GameObject:

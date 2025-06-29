@@ -3315,7 +3315,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 476793275}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -10317,7 +10317,7 @@ MonoBehaviour:
   nextLevelButton: {fileID: 8242208518788410046}
   menuButton: {fileID: 296019940949950047}
   testButton: {fileID: 0}
-  gameControlSystem: {fileID: 0}
+  gameControlSystem: {fileID: 4638615900174060994}
   levelCompleteMessage: You Win!
 --- !u!114 &9183056435811963457
 MonoBehaviour:
@@ -10362,7 +10362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game_Control_System: {fileID: 4638615900174060994}
-  levelCompleteManager: {fileID: 0}
+  levelCompleteManager: {fileID: 9158536014185878435}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

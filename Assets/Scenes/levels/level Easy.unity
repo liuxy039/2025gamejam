@@ -9391,7 +9391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 10
-  moveSpeed: 1.9
+  moveSpeed: 22.4
   inactiveElasticity: 0
   activeElasticity: 2
   inactiveSprite: {fileID: 21300000, guid: 7aba23014940e9648a792da2f7b894aa, type: 3}
@@ -10206,7 +10206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7875565419061479132
 Transform:
   m_ObjectHideFlags: 0
@@ -10258,7 +10258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &8152251442570881362
 GameObject:
   m_ObjectHideFlags: 0
