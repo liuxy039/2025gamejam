@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
-    [SerializeField] private Sprite sprite;
     public float speed = 7f;
     public float jumpforce = 15f;
     [SerializeField] LayerMask raycastLayer = 1 << 6;
@@ -27,7 +26,6 @@ public class Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cld = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
-        GetComponent<SpriteRenderer>().sprite = sprite;
         oscale = transform.localScale;
     }
 
